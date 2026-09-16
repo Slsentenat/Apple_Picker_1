@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class ApplePicker : MonoBehaviour
@@ -9,12 +10,17 @@ public class ApplePicker : MonoBehaviour
     public float basketspacingY = 2f;
 
     void Start() {
-        for (int i = 0; i < numbaskets; i++)
-        {
+        for (int i = 0; i < numbaskets; i++) {
             GameObject tbasketsGO = Instantiate<GameObject>(basketprefab);
             Vector3 pos = Vector3.zero;
             pos.y = basketbottomY + (basketspacingY * i);
             tbasketsGO.transform.position = pos;
         }
+    }
+        public void AppleMissed() {
+        GameObject[] appleArray = GameObject.FindGameObjectsWithTag("Apple");
+        foreach (GameObject tempGO in appleArray) {
+            Destroy(tempGO);
         }
     }
+}
