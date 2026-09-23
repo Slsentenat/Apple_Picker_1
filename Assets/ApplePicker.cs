@@ -1,5 +1,9 @@
 using JetBrains.Annotations;
+using NUnit.Framework;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ApplePicker : MonoBehaviour
 {
@@ -8,19 +12,32 @@ public class ApplePicker : MonoBehaviour
     public int numbaskets = 3;
     public float basketbottomY = -14f;
     public float basketspacingY = 2f;
+    public List<GameObject> basketList;
+
 
     void Start() {
+        basketList = new List<GameObject>();
         for (int i = 0; i < numbaskets; i++) {
             GameObject tbasketsGO = Instantiate<GameObject>(basketprefab);
             Vector3 pos = Vector3.zero;
             pos.y = basketbottomY + (basketspacingY * i);
             tbasketsGO.transform.position = pos;
+            basketList.Add(tbasketsGO);
         }
     }
         public void AppleMissed() {
         GameObject[] appleArray = GameObject.FindGameObjectsWithTag("Apple");
         foreach (GameObject tempGO in appleArray) {
             Destroy(tempGO);
+        }
+        int basketIndex = basketList.Count -1;
+        GameObject basketGO = basketList[basketIndex];
+        basketList.RemoveAt(basketIndex);
+        Destroy(basketGO);
+
+        if (basketList.Count == 0)
+        {
+            SceneManager.LoadScene("_Scene_0");
         }
     }
 }
