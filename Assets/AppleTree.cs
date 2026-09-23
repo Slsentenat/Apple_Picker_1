@@ -4,6 +4,7 @@ public class AppleTree : MonoBehaviour
 {
     [Header("Inscribed")]
     public GameObject ApplePrefab;
+    public GameObject BadApplePrefab;
     public float speed = 1f;
     public float leftandrightedge = 10f;
     public float changedirchance = 0.1f;
