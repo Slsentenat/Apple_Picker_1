@@ -9,18 +9,29 @@ public class AppleTree : MonoBehaviour
     public float leftandrightedge = 10f;
     public float changedirchance = 0.1f;
     public float appledropdelay = 1f;
+  //public float badapplechance = 0.5f;
 
    
     void Start()
     {
         Invoke("dropapple", 2f);
     }
-    
+
     void dropapple()
     {
-        GameObject apple = Instantiate<GameObject>(ApplePrefab);
-        apple.transform.position = transform.position;
-        Invoke("dropapple", appledropdelay);
+      //if (Random.value < badapplechance)
+        {
+            GameObject apple = Instantiate<GameObject>(ApplePrefab);
+            apple.transform.position = transform.position;
+            Invoke("dropapple", appledropdelay);
+        }
+      //else if (Random.value > badapplechance)
+        {
+         // GameObject badapple = Instantiate<GameObject>(BadApplePrefab);
+          //badapple.transform.position = transform.position;
+         // Invoke("dropapple", appledropdelay);
+        }
+  
     }
 
     
