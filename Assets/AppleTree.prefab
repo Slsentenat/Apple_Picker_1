@@ -190,7 +190,7 @@ MonoBehaviour:
   leftandrightedge: 24
   changedirchance: 0.03
   appledropdelay: 0.9
-  badapplechance: 0.3
+  badapplechance: 0.5
 --- !u!1 &3058939172121807442
 GameObject:
   m_ObjectHideFlags: 0
