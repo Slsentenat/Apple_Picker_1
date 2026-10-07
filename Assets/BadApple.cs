@@ -9,7 +9,7 @@ public class BadApple : MonoBehaviour {
         {
             Destroy(this.gameObject);
             ApplePicker apScript = Camera.main.GetComponent<ApplePicker>();
-            apScript.AppleMissed();
+            //apScript.AppleMissed();
         }
     }
 }

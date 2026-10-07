@@ -25,7 +25,7 @@ public class AppleTree : MonoBehaviour
             apple.transform.position = transform.position;
             Invoke("dropapple", appledropdelay);
         }
-        else if (Random.value < badapplechance)
+        else if (Random.value <= badapplechance)
         {
             GameObject badapple = Instantiate<GameObject>(BadApplePrefab);
             badapple.transform.position = transform.position;
